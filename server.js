@@ -96,18 +96,15 @@ app.post('/api/banks', function(req, res){
 });
 
 //Delete
-app.delete('/api/banks/:_id', function(req,res){
-	db.Bank.findById(req.params._id, function(err, bank){
-		if(err){
-			res.json(err);
-		} else {
-			console.log('This bank was deleted: ' + bank);
-			db.Bank.remove(function(err, bank){
-			res.json(bank);
+app.delete('/api/banks/:id', function (req,res){
+			db.Bank.remove({_id: req.params.id}, function (err, bank) {
+				console.log('This bank was deleted: ' + bank);
+				res.json(bank);
 			});
-		}
-	});
 });
+
+		
+
 
 //Update Progress Amount
 app.put('/api/banks/:id', function(req, res) {
