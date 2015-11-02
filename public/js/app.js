@@ -122,6 +122,9 @@ $('.bank-list').on('click', '.delete', function(e){
 	console.log('I was clicked');
 	var bankId = $(this).closest('li').attr('id');
 	var bank = $(this).closest('li');
+	console.log("this is bank ID: " , bankId);
+	console.log("this is bank: ", bank);
+
 
 //Server delete request
 	$.ajax({
